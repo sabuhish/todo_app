@@ -23,3 +23,18 @@ def addTodo(request):
         new_todo.save()
 
     return redirect("home")
+
+
+def completetodo(request, id):
+    todo =todo.objects.get(pk=id)
+    todo.complete =True
+    todo.save()
+
+    return redirect("home")
+
+
+def deletecompleted(request):
+    todo.objects.filter(complete__exact=True).delete()
+
+
+    return redirect("home")
