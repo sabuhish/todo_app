@@ -38,3 +38,9 @@ def deletecompleted(request):
 
 
     return redirect("home")
+
+
+def deleteall(request):
+    todo.objects.all().delete()
+
+    return redirect("home")
